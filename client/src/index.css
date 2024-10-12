@@ -11,5 +11,54 @@
 
 .home,
 .apology {
-  height: 100vw;
+  height: 70vh;
+}
+
+.sorry-message {
+  position: relative;
+  top: 15%;
+}
+
+.textarea {
+  max-width: 99%;
+  min-width: 99%;
+}
+
+.prev {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 3px, black, solid;
+}
+
+.submitButton {
+  width: 200px;
+}
+
+.feedback-form {
+  text-align: center;
+  align-items: center;
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+}
+
+.navigation {
+  text-align: center;
+}
+
+.feed {
+  background-color: antiquewhite;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 30px;
+  border: 3px, black, solid;
 }

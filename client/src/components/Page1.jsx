@@ -11,6 +11,13 @@ export default function Page1() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formValues);
+    fetch("http://localhost:8080/newfeedback", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ formValues }),
+    });
   }
 
   function handleInputChange(event) {
@@ -41,7 +48,9 @@ export default function Page1() {
         leave any inquiries, requests or complaints as this page is monitored by
         out team, although we would like to state that official complaints and
         requests should be done via the propper channels and procedures which
-        will take priority over any left here.
+        will take priority over any left here. <br />
+        <br /> If you dont see your feedback straight away, just refresh the
+        page, thank you for your time and your comments.
       </p>
 
       <div id="feedback">
@@ -54,7 +63,7 @@ export default function Page1() {
             value={formValues.name}
             onChange={handleInputChange}
           />
-          <label htmlFor="first_time">first time?</label>
+          <label htmlFor="first_time">first time, Yes/No?</label>
           <input
             type="text"
             name="first_time"
@@ -76,7 +85,9 @@ export default function Page1() {
           <p>Current first time value is: {formValues.first_time}</p>
           <p>Current feedback value is: {formValues.feedback}</p>
 
-          <button type="submit">submit</button>
+          <button className="submitButton" type="submit">
+            submit
+          </button>
         </form>
       </div>
 
@@ -87,10 +98,10 @@ export default function Page1() {
         {dbData.map((data) => {
           return (
             <>
-              <div key={data.id}>
-                <p>{data.name}</p>
-                <p>{data.first_time}</p>
-                <p>{data.feedback}</p>
+              <div className="feed" key={data.id}>
+                <p>name: {data.name}</p>
+                <p>First time?: {data.first_time}</p>
+                <p>Feedback: {data.feedback}</p>
               </div>
             </>
           );

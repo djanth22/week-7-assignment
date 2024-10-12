@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <h2>info stuff</h2>
+      <h2 className="footer">info stuff</h2>
     </>
   );
 }
