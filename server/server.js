@@ -32,6 +32,17 @@ app.get("/feedback", async (req, res) => {
   }
 });
 
-app.get("/community", (req, res) => {
-  //   res.json({ message: "this is the community" });
+app.post("/newfeedback", (req, res) => {
+  const bodyData = req.body;
+  res.json({ message: "user feedback" });
+  console.log(bodyData);
+
+  db.query(
+    `INSERT INTO feedback (name, first_time, feedback) VALUES ($1, $2 , $3 )`,
+    [
+      bodyData.formValues.name,
+      bodyData.formValues.first_time,
+      bodyData.formValues.feedback,
+    ]
+  );
 });

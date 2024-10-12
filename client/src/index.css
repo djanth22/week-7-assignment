@@ -8,3 +8,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.home,
+.apology {
+  height: 100vw;
+}

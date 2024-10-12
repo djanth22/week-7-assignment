@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Page1() {
   const [formValues, setFormValues] = useState({
     name: "",
-    location: "",
+    first_time: "",
+    feedback: "",
   });
 
   function handleSubmit(event) {
@@ -15,9 +17,32 @@ export default function Page1() {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   }
 
+  const [dbData, setDbData] = useState([]);
+
+  useEffect(() => {
+    async function fetchDB() {
+      const response = await fetch("http://localhost:8080/feedback");
+      const data = await response.json();
+      const dataRev = data.reverse();
+
+      setDbData(dataRev);
+    }
+    fetchDB();
+  }, []);
+
   return (
     <>
-      <h2>feedback</h2>
+      <h2>Visitor feedback and comments</h2>
+      <p>
+        feel free to leave us a little comment, review or your thoughts, it
+        would mean a lot to us. <br />
+        <br /> Abuse of other guests or staff via will not be tolerated and any
+        such comment left here will be removed. <br /> <br /> Also, feel free to
+        leave any inquiries, requests or complaints as this page is monitored by
+        out team, although we would like to state that official complaints and
+        requests should be done via the propper channels and procedures which
+        will take priority over any left here.
+      </p>
 
       <div id="feedback">
         <form className="feedback-form" onSubmit={handleSubmit}>
@@ -27,6 +52,14 @@ export default function Page1() {
             name="name"
             id="name"
             value={formValues.name}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="first_time">first time?</label>
+          <input
+            type="text"
+            name="first_time"
+            id="first_time"
+            value={formValues.first_time}
             onChange={handleInputChange}
           />
           <label htmlFor="feedback">feedback</label>
@@ -39,8 +72,9 @@ export default function Page1() {
             onChange={handleInputChange}
           />
 
-          <p>Current value is: {formValues.name}</p>
-          <p>Current value is: {formValues.feedback}</p>
+          <p>Current name value is: {formValues.name}</p>
+          <p>Current first time value is: {formValues.first_time}</p>
+          <p>Current feedback value is: {formValues.feedback}</p>
 
           <button type="submit">submit</button>
         </form>
@@ -49,7 +83,19 @@ export default function Page1() {
       <div className="prev-feedback">
         <h2>previous feedback</h2>
       </div>
-      <div className="prev">{/* map going here */}</div>
+      <div className="prev">
+        {dbData.map((data) => {
+          return (
+            <>
+              <div key={data.id}>
+                <p>{data.name}</p>
+                <p>{data.first_time}</p>
+                <p>{data.feedback}</p>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 }
