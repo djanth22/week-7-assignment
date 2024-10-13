@@ -61,6 +61,7 @@ export default function Page1() {
             name="name"
             id="name"
             value={formValues.name}
+            required
             onChange={handleInputChange}
           />
           <label htmlFor="first_time">first time, Yes/No?</label>
@@ -69,6 +70,7 @@ export default function Page1() {
             name="first_time"
             id="first_time"
             value={formValues.first_time}
+            required
             onChange={handleInputChange}
           />
           <label htmlFor="feedback">feedback</label>
@@ -77,6 +79,7 @@ export default function Page1() {
             type="text"
             name="feedback"
             id="feedback"
+            required
             value={formValues.feedback}
             onChange={handleInputChange}
           />

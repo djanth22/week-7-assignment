@@ -41,7 +41,7 @@ html {
 }
 
 .nav-el:hover {
-  font-size: large;
+  font-size: 4vw;
   font-weight: 700;
   box-shadow: 0 0 20px 5px #ffd54b;
 }
