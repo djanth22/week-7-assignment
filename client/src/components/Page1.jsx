@@ -11,7 +11,7 @@ export default function Page1() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formValues);
-    fetch("http://localhost:8080/newfeedback", {
+    fetch("https://week-7-assignment-server-1rcl.onrender.com/newfeedback", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -28,7 +28,9 @@ export default function Page1() {
 
   useEffect(() => {
     async function fetchDB() {
-      const response = await fetch("http://localhost:8080/feedback");
+      const response = await fetch(
+        "https://week-7-assignment-server-1rcl.onrender.com/feedback"
+      );
       const data = await response.json();
       const dataRev = data.reverse();
 

@@ -4,7 +4,7 @@ guestbook2.0
 
 # render
 
-client link:
+client link: https://week-7-assignment-tv3e.onrender.com
 
 server link:
 

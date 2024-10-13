@@ -1,5 +1,3 @@
-import "/public/images/snake.png";
-
 export default function Logo() {
   return (
     <>
