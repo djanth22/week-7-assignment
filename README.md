@@ -6,7 +6,7 @@ guestbook2.0
 
 client link: https://week-7-assignment-tv3e.onrender.com
 
-server link:
+server link: https://week-7-assignment-server-1rcl.onrender.com
 
 trello link: https://trello.com/invite/b/67092db52b03e4d1a61ed598/ATTI063e36cfc92f8f2d6e6e08cc5d27ca3fB3EC041E/week-7-assignment
 
